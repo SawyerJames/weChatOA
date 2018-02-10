@@ -1,0 +1,12 @@
+<view class="container">
+    <view>
+      <image src='/images/big_logo.png' class='logo' class='pic_1'></image>
+    </view>
+    <view>
+       <text>已保存</text>
+</view>
+<view bindtap="On">
+    <text class='text_1'>进入草稿箱</text>
+    <image src='/images/logo_6.png' class='pic_2'></image>
+</view>
+</view>

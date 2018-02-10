@@ -1,0 +1,4 @@
+<view class='container'>
+    <input bindinput='cardNumberInput' type='number' class="cardNumber"></input>
+    <button type='button' bindtap='goIndex' class='goIndex'>立即登录</button>
+</view>

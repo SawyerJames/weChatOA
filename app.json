@@ -1,0 +1,24 @@
+{
+    "pages": [
+        "pages/login/login",
+        "pages/index/index",
+        "pages/Reimbursement/Reimbursement",
+        "pages/turn_page/turn_page",
+        "pages/Leave_page/Leave_page",
+        "pages/Sign_in/Sign_in",
+        "pages/Application progress/Application progress",
+        "pages/Application/Application",
+        "pages/new_page/new_page",
+        "pages/my_leave_a/my_leave_a",
+        "pages/My_Draft/My_Draft",
+        "pages/my_Reimbursement/my_Reimbursement",
+        "pages/my_leave/my_leave",
+        "pages/content/content"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTitleText": "腾放员工平台",
+        "navigationBarTextStyle": "black"
+    }
+} 

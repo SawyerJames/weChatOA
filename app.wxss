@@ -1,0 +1,25 @@
+/**app.wxss**/
+.container {
+  color: #333;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+} 
+
+/*flex布局 纵向 可继承类*/
+
+  .flexRow {
+      display: flex;
+      flex-direction: row;
+  }
+ /*flex布局 纵向 可继承类*/
+  .flexCol {
+      display: flex;
+      flex-direction: column;
+  }
+/*flex布局 换行 可继承类*/
+  .flexWrap{
+    flex-wrap: wrap;
+  }

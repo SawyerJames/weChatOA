@@ -1,0 +1,123 @@
+<view class="container">
+  <view class="container_Bg_1">
+    <!--顶部背景  -->
+  </view>
+
+  <view class='page_one'>
+    <!--我的报销  -->
+    <view class='page_up'>
+      <!--总-->
+      <view class='title'>
+        <text>我的报销</text>
+      </view>
+      <view>
+        <view class='content_a flexRow AllHeight'>
+          <view class='left'>
+            <text>报销编号</text>
+          </view>
+           <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+          <view class='right'>{{array[index]}}
+            <image src='/images/pic_1.png' class='pic_1'></image>
+          </view>
+          </picker>
+        </view>
+        <view class='flexRow Height'>
+          <view class='left'>
+            <text>报销明细1</text>
+          </view>
+          <view class='right right_a'>
+            <text bindtap='goXX'>删除</text>
+            <text bindtap='goXX'>复制</text>
+            <image src='/images/pic_2.png' class='pic_2'></image>
+          </view>
+        </view>
+        <view class='flexRow AllHeight'>
+          <view class='left'>
+            <text>成本中心</text>
+          </view>
+          <view class='right'>请选择</view>
+        </view>
+        <view class='flexRow AllHeight'>
+          <view class='left'>
+            <text>报销科目</text>
+          </view>
+          <view class='right'>请选择</view>
+        </view>
+        <view class='flexRow AllHeight'>
+          <view class='left'>
+            <text>产品日期</text>
+          </view>
+          <view class='right'>2018-01-25至2019-05-21</view>
+        </view>
+        <view class='flexRow AllHeight'>
+          <view class='left'>
+            <text>金额（元）</text>
+          </view>
+          <view class='right'>0.00</view>
+        </view>
+        <view class='flexRow Height'>
+          <view class='left_a'>
+            <image src='/images/pic_3.png' class='pic_3'></image>
+            <text>备注</text>
+          </view>
+        </view>
+        <view class='BigHeight_a'>
+          <input type="text" placeholder="请输入明细的列表详情备注 （限300字）"></input>
+        </view>
+        <view class='flexRow  Height'>
+          <view class='left_a'>
+            <image src='/images/pic_4.png' class='pic_3'></image>
+            <text>图片</text>
+          </view>
+        </view>
+
+
+
+        <view class='BigHeight'>
+          <view>
+            <image src='/images/pic_7.png' class='pic_4'></image>
+            <image src='/images/pic_8.png' class='pic_4'></image>
+          </view>
+        </view>
+        <!-- <view class='flexRow Height'>
+          <view class='left_a'>
+            <image src='/images/pic_5.png' class='pic_3'></image>
+            <text>审批人</text>
+          </view>
+        </view> -->
+        <!-- <view class='BigHeight'>
+          <view>
+            <image src='/images/pic_9.png' class='pic_4'></image>
+            <image src='/images/pic_10.png' class='pic_4'></image>
+          </view>
+        </view> -->
+        <!-- <view class='flexRow Height'>
+          <view class='left_a'>
+            <image src='/images/pic_6.png' class='pic_3'></image>
+            <text>相关人</text>
+          </view>
+        </view> -->
+        <!-- <view class='BigHeight'>
+          <view>
+            <image src='/images/pic_9.png' class='pic_4'></image>
+            <image src='/images/pic_10.png' class='pic_4'></image>
+          </view>
+        </view> -->
+      </view>
+
+    </view>
+    <!--按钮  -->
+    <view class='page_down'>
+      <view>
+        <button type="default" class='button_1'  bindtap="Save">
+          保存草稿
+        </button>
+      </view>
+      <view>
+        <button type="default" class='button_1'  bindtap="Lay">
+          立即提交
+        </button>
+      </view>
+    </view>
+  </view>
+</view>

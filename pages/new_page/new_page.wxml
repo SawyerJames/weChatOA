@@ -1,0 +1,8 @@
+<view class="container">
+    <view>
+        <image src='/images/big_logo.png' class='logo' class='pic_1'></image>
+    </view>
+    <view>
+        <text>已提交</text>
+    </view>
+</view>

@@ -1,0 +1,29 @@
+.container {
+  width: 300rpx;
+  height: 300rpx;
+  margin: 100rpx auto;
+}
+
+.container view {
+  margin-top: 10rpx;
+
+}
+
+
+.pic_1 {
+  width: 170rpx;
+  height: 170rpx;
+}
+
+
+.pic_2 {
+  width: 29rpx;
+  height: 17rpx;
+  vertical-align: middle;
+  margin-left: 10rpx;
+}
+.text_1{
+  color: #30a072;
+font-size: 32rpx;
+
+}

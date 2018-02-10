@@ -1,0 +1,90 @@
+<view class="container">
+  <view class="container_Bg_1">
+    <!--顶部背景  -->
+  </view>
+
+  <view class='page_one'>
+    <!--我的报销  -->
+    <view class='page_up'>
+      <!--总-->
+      <view class='title'>
+        <text>我的请假</text>
+      </view>
+      <view class='content'>
+        <view class='content_a flexRow AllHeight'>
+          <view class='left'>
+            <text>请假类型：</text>
+            <text class='text_1'>{{Type}}</text>
+          </view>
+          <view class='right'>审核中</view>
+        </view>
+        <view class='content_a flexRow AllHeight'>
+          <view class='left'>
+            <text>请假事由：</text>
+            <text class='text_1'>{{Things}}</text>
+          </view>
+        </view>
+        <view class='content_a flexRow AllHeight'>
+          <view class='left'>
+            <text>请假天数：</text>
+            <text class='text_1'>{{Day}}</text>
+          </view>
+        </view>
+        <view class='content_a flexRow AllHeight'>
+          <view class='left'>
+            <text>请假时间：</text>
+            <text class='text_1'>2018-01-10——2018-01-25</text>
+          </view>
+        </view>
+        <!--进度  -->
+        <view class='content_middle'>
+           <block  wx:for="{{List}}">    
+                    <view class='content_down'>
+                        <view class='content_down_a flexRow'>
+                                <view class='photo'>
+                                    <image src='{{item.imgSrc}}'  class='pic_1'></image>
+                                </view>
+                                <view class='ConText flexCol'>
+                                    <text class='ConText_a'>{{item.name}}</text>
+                                    <text class='ConText_b'>{{item.goType}}</text>
+                                </view>
+                                <view class='ConText_c'>
+                                    <text>{{item.time}}</text>
+                                     <text>{{item.times}}</text>
+                                </view>
+                        </view>
+                    </view>
+            </block>
+          <!-- <view class='content_down'>
+            <view class='content_down_a flexRow'>
+              <view class='photo'>
+                <image src='/images/photo2.png' class='pic_1'></image>
+              </view>
+              <view class='ConText flexCol'>
+                <text class='ConText_a'>自己</text>
+                <text class='ConText_b '>(已记录)</text>
+              </view>
+              <view class='ConText_c'>
+                <text>2018-01-26 08：00</text>
+              </view>
+            </view>
+          </view>
+          <view class='content_down'>
+            <view class='content_down_a flexRow'>
+              <view class='photo'>
+                <image src='/images/photo3.png' class='pic_1'></image>
+              </view>
+              <view class='ConText flexCol'>
+                <text class='ConText_a'>自己</text>
+                <text class='ConText_b '>(行政人员)</text>
+              </view>
+              <view class='ConText_c'>
+                <text>2018-01-26 08：00</text>
+              </view>
+            </view>
+          </view> -->
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

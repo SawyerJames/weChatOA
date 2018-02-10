@@ -1,0 +1,55 @@
+<view class="container">
+  <view class="container_Bg_1">
+    <!--顶部背景  -->
+  </view>
+
+  <view class='page_one'>
+    <!--内容详情  -->
+    <view class='page_up'>
+      <!--总-->
+      <view class='title'>
+        <text>内容详情</text>
+      </view>
+      <view class='content'>
+        <!--进度  -->
+        <view class='content_middle'>
+          <view class='content_down  flexCol  pos_1'>
+            <view class='Height'>
+              <text>主题：</text>
+              <text>事假</text>
+            </view>
+            <view class='Height'>
+              <text>请假时间：</text>
+              <text>2017-08-06——2017-08-12</text>
+            </view>
+            <view class='Height Height_A flexRow'>
+              <text class='text_a'>请假原因：</text>
+              <text class='text_b'>由于个人原因于今日请假，望审批同意。由于个人原因于今日请假，望审批同意。由于个人原因于今日请假，望审批同意。</text>
+            </view>
+            <view class='Height Height_B'>
+              <text>请假人：</text>
+              <text>张宁</text>
+            </view>
+            <view class='Height'>
+              <text>审批人：</text>
+              <text>笑笑</text>
+            </view>
+            <view class='Height'>
+              <text>相关人：</text>
+              <text>许强</text>
+            </view>
+            <view class='Height'>
+              <text>创建时间：</text>
+              <text>2017-8-06</text>
+              <text>15：30</text>
+            </view>
+          </view>
+
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+
+</view>

@@ -1,0 +1,107 @@
+<view class="container">
+    <view class="container_Bg_1">
+        <!--顶部背景  -->
+    </view>
+    <view class='page_one'>
+        <!--我的报销  -->
+        <view class='page_up'>
+            <!--总-->
+            <view class='title'>
+                <text>我的请假</text>
+            </view>
+            <view>
+                <view class='content_a flexRow AllHeight'>
+                    <view class='left'>
+                        <text>请假类型</text>
+                    </view>
+                    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                        <view class='right'>当前选择：{{array[index]}}
+                            <image src='/images/pic_1.png' class='pic_1'></image>
+                        </view>
+                    </picker>
+                </view>
+                <view class='flexRow AllHeight'>
+                    <view class='left'>
+                        <text>开始时间</text>
+                    </view>
+                    <view class='rights flexRow'>
+                        <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+                            <view class="rights_a picker">
+                                {{date}}
+                            </view>
+                        </picker>
+                        <picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
+                            <view class="picker">
+                                {{time}}
+                            </view>
+                        </picker>
+                    </view>
+                </view>
+                <view class='flexRow AllHeight'>
+                    <view class='left'>
+                        <text>结束时间</text>
+                    </view>
+                    <view class='rights flexRow'>
+                        <picker mode="date" value="{{date_end}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange_end">
+                            <view class="rights_a picker">
+                                {{date_end}}
+                            </view>
+                        </picker>
+                        <picker mode="time" value="{{time_end}}" start="09:01" end="21:01" bindchange="bindTimeChange_end">
+                            <view class="picker">
+                                {{time_end}}
+                            </view>
+                        </picker>
+                    </view>
+                </view>
+                <view class='flexRow AllHeight'>
+                    <view class='left'>
+                        <text>申请时长</text>
+                    </view>
+                    <view class='right   flexRow   Add'>
+                        <view class='add' bindtap="Click_add">
+                            <image src='/images/pic_15.png' class='pic_5'></image>
+                        </view>
+                        <view class='text_ad'>
+                            <text>{{num}}</text>
+                        </view>
+                        <view class='adv' bindtap="Click_adv">
+                            <image src='/images/pic_16.png' class='pic_5'></image>
+                        </view>
+                    </view>
+                </view>
+                <view class='flexRow AllHeights   flexCol'>
+                    <view class='left'>
+                        <text>请假内容</text>
+                    </view>
+                    <view class='rights'>
+                        <textarea class='text'></textarea>
+                        <view class='BigHeight'>
+                            <view>
+                                <image src='/images/pic_7.png' class='pic_4'></image>
+                                <image src='/images/pic_8.png' class='pic_4'></image>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!--按钮  -->
+        <view class='page_down'>
+            <view>
+                <button type="default" class='button_1' bindtap="Save" >
+                    保存草稿
+                </button>
+            </view>
+            <view>
+                <button type="default" class='button_1'  bindtap="Lay">
+                    立即提交
+                </button>
+            </view>
+        </view>
+    </view>
+
+
+
+
+</view>

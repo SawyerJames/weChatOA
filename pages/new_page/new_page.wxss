@@ -1,0 +1,16 @@
+.container {
+  width: 300rpx;
+  height: 300rpx;
+  margin: 100rpx auto;
+}
+
+.container view {
+  margin-top: 10rpx;
+
+}
+
+
+.pic_1 {
+  width: 170rpx;
+  height: 170rpx;
+}
