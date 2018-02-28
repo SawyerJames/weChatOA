@@ -2,35 +2,34 @@
     <view class="container_Bg">
         <!--顶部背景  -->
     </view>
-    <view class='container_Photo'>
-        <!--头像  -->
-        <image src='/images/photo.png' class='img'></image>
-    </view>
     <view class='container_Backlog flexCol'>
-        <!-- 代办事项 -->
+        <!--头像  -->
+        <image src='{{imgSrc}}' class='img'></image>
+        <!-- 草稿箱 -->
+        <view bindtap="Draft" class='Draft'>
+            <image src='/images/draft.png' class='draft'></image>
+            <text class='draft_text'>我的草稿</text>
+        </view>
+        <!--申请进度 代办事项 -->
         <view class='Backlog_up flexRow'>
-            <text>欢迎您陈xx</text>
+            <text>欢迎你 {{nickName}}</text>
         </view>
         <view class='Backlog_down'>
-            <view class='Backlog_down_U'>
-                <view>
-                    <image src='/images/pic.png' class='pic'></image>
-                </view>
+            <view class='Backlog_down_D'>
+                <text class='Cir_icon'>70</text>
                 <view bindtap="Application">
                     <text>申请进度</text>
                 </view>
             </view>
             <view class='Backlog_down_D'>
-                <view>
-                    <image src='/images/pic.png' class='pic'></image>
-                </view>
+                <text class='Cir_icon'>{{TODO_COUNT}}</text>
                 <view>
                     <text>待办事项</text>
                 </view>
             </view>
         </view>
     </view>
-    <view class='container_Leave  Leave_A' bindtap="Leave" >
+    <view class='container_Leave  Leave_A' bindtap="Leave">
         <!-- 请假申請 -->
         <view class='container_Leave_U'>
             <image src='/images/logo_1.png' class='logo'></image>

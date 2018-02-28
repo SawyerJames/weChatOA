@@ -1,123 +1,105 @@
 <view class="container">
-  <view class="container_Bg_1">
     <!--顶部背景  -->
-  </view>
-
-  <view class='page_one'>
-    <!--我的报销  -->
-    <view class='page_up'>
-      <!--总-->
-      <view class='title'>
-        <text>我的报销</text>
-      </view>
-      <view>
-        <view class='content_a flexRow AllHeight'>
-          <view class='left'>
-            <text>报销编号</text>
-          </view>
-           <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-          <view class='right'>{{array[index]}}
-            <image src='/images/pic_1.png' class='pic_1'></image>
-          </view>
-          </picker>
+    <view class="container_Bg_1"></view>
+    <view class='page_one'>
+        <!--我的报销  -->
+        <view class='page_up'>
+            <!--总-->
+            <view class='title'>
+                <text>我的报销</text>
+            </view>
+            <!--报销编号  -->
+            <view>
+                <view class='flexRow AllSameHeight GreenFont'>
+                    <view class='Title_left'>
+                        <text>报销编号</text>
+                    </view>
+                    <picker bindchange="bindReiNumber" value="{{index}}" range="{{reiNumber}}">
+                        <view class='Title_right'>{{reiNumber[index]}}
+                            <image src='/images/pic_1.png' class='Rei_Pic'></image>
+                        </view>
+                    </picker>
+                </view>
+                <!--成本中心  -->
+                <view class='flexRow AllSameHeight'>
+                    <view class='Title_left'>
+                        <text>成本中心</text>
+                    </view>
+                    <picker bindchange="bindCost_centre" value="{{cost}}" range="{{cost_centre}}">
+                        <view class='Title_right' wx:if="{{cost_centre[cost]}}">{{cost_centre[cost]}}</view>
+                    </picker>
+                </view>
+                <!--报销科目  -->
+                <view class='flexRow AllSameHeight'>
+                    <view class='Title_left'>
+                        <text>报销科目</text>
+                    </view>
+                    <picker bindchange="bindReiType" value="{{subject}}" range="{{cost_subject}}">
+                        <view class='Title_right' wx:if="{{cost_subject[subject]}}">{{cost_subject[subject]}}</view>
+                    </picker>
+                </view>
+                <!--产品日期  -->
+                <view class='flexRow AllSameHeight'>
+                    <view class='Title_left'>
+                        <text>产品日期</text>
+                    </view>
+                    <view class='flexRow Date'>
+                        <picker mode="date" value="{{date_start}}" bindchange="bindDateStart">
+                            <text>{{date_start}}</text>
+                        </picker>
+                        <text>至</text>
+                        <picker mode="date" value="{{date_end}}" bindchange="bindDateEnd">
+                            <text>{{date_end}}</text>
+                        </picker>
+                    </view>
+                </view>
+                <!--金额  -->
+                <view class='flexRow AllSameHeight'>
+                    <view class='Title_left'>
+                        <text>金额（元）</text>
+                    </view>
+                    <view class=' Amount flexRow'>
+                        <input maxlength="10" placeholder="输入金额" type='number' bindinput='bindMoney' />
+                        <text>元</text>
+                    </view>
+                </view>
+                <!--备注  -->
+                <view class='flexRow RemarkHeight'>
+                    <view class='Title_leftCon'>
+                        <image src='/images/pic_3.png' class='remark' ></image>
+                        <text>备注</text>
+                    </view>
+                </view>
+                <view class='RemarkDetailed'>
+                    <textarea placeholder="请输入明细的列表详情备注 （限300字）" bindinput='bindRemark'></textarea>
+                </view>
+                <!--图片  -->
+                <view class='flexRow  RemarkHeight'>
+                    <view class='Title_leftCon'>
+                        <image src='/images/pic_4.png' class='remark'></image>
+                        <text>图片</text>
+                    </view>
+                </view>
+                <!--上传图片按钮  -->
+                <view class='Pictures'>
+                    <image wx:if="{{tempFilePaths}}" src="{{tempFilePaths}}" mode="aspecFill" class="tempImg"/>
+                    <image src='/images/pic_7.png' class='AddPic' bindtap='chooseimage'></image>
+                    <image src='/images/pic_8.png' class='AddPic' bindtap='clearimage'></image>
+                </view>
+            </view>
         </view>
-        <view class='flexRow Height'>
-          <view class='left'>
-            <text>报销明细1</text>
-          </view>
-          <view class='right right_a'>
-            <text bindtap='goXX'>删除</text>
-            <text bindtap='goXX'>复制</text>
-            <image src='/images/pic_2.png' class='pic_2'></image>
-          </view>
+        <!--按钮  -->
+        <view class='page_down'>
+            <view>
+                <button type="default" class='SaveAndLay_button' bindtap="Save">
+                    保存草稿
+                </button>
+            </view>
+            <view>
+                <button type="default" class='SaveAndLay_button' bindtap="Lay">
+                    立即提交
+                </button>
+            </view>
         </view>
-        <view class='flexRow AllHeight'>
-          <view class='left'>
-            <text>成本中心</text>
-          </view>
-          <view class='right'>请选择</view>
-        </view>
-        <view class='flexRow AllHeight'>
-          <view class='left'>
-            <text>报销科目</text>
-          </view>
-          <view class='right'>请选择</view>
-        </view>
-        <view class='flexRow AllHeight'>
-          <view class='left'>
-            <text>产品日期</text>
-          </view>
-          <view class='right'>2018-01-25至2019-05-21</view>
-        </view>
-        <view class='flexRow AllHeight'>
-          <view class='left'>
-            <text>金额（元）</text>
-          </view>
-          <view class='right'>0.00</view>
-        </view>
-        <view class='flexRow Height'>
-          <view class='left_a'>
-            <image src='/images/pic_3.png' class='pic_3'></image>
-            <text>备注</text>
-          </view>
-        </view>
-        <view class='BigHeight_a'>
-          <input type="text" placeholder="请输入明细的列表详情备注 （限300字）"></input>
-        </view>
-        <view class='flexRow  Height'>
-          <view class='left_a'>
-            <image src='/images/pic_4.png' class='pic_3'></image>
-            <text>图片</text>
-          </view>
-        </view>
-
-
-
-        <view class='BigHeight'>
-          <view>
-            <image src='/images/pic_7.png' class='pic_4'></image>
-            <image src='/images/pic_8.png' class='pic_4'></image>
-          </view>
-        </view>
-        <!-- <view class='flexRow Height'>
-          <view class='left_a'>
-            <image src='/images/pic_5.png' class='pic_3'></image>
-            <text>审批人</text>
-          </view>
-        </view> -->
-        <!-- <view class='BigHeight'>
-          <view>
-            <image src='/images/pic_9.png' class='pic_4'></image>
-            <image src='/images/pic_10.png' class='pic_4'></image>
-          </view>
-        </view> -->
-        <!-- <view class='flexRow Height'>
-          <view class='left_a'>
-            <image src='/images/pic_6.png' class='pic_3'></image>
-            <text>相关人</text>
-          </view>
-        </view> -->
-        <!-- <view class='BigHeight'>
-          <view>
-            <image src='/images/pic_9.png' class='pic_4'></image>
-            <image src='/images/pic_10.png' class='pic_4'></image>
-          </view>
-        </view> -->
-      </view>
-
     </view>
-    <!--按钮  -->
-    <view class='page_down'>
-      <view>
-        <button type="default" class='button_1'  bindtap="Save">
-          保存草稿
-        </button>
-      </view>
-      <view>
-        <button type="default" class='button_1'  bindtap="Lay">
-          立即提交
-        </button>
-      </view>
-    </view>
-  </view>
 </view>

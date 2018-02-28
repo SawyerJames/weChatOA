@@ -1,73 +1,55 @@
 <view class="container">
-  <view class="container_Bg">
     <!--顶部背景  -->
-
-  </view>
-
-  <view class='container_Backlog '>
-    <view class='title'>
-      <text>我的外勤</text>
-    </view>
-    <view class='content_A flexRow'>
-      <view class='content_Aa'>
-        <image src='/images/photo.png' class='pic_1'></image>
-      </view>
-      <view class='content_Bb'>
-        <view>
-          <text class='text_1'>陈xx</text>
-          <image src='/images/pic_12.png' class='pic_2'></image>
+    <view class="container_Bg"></view>
+    <!--我的外勤  -->
+    <view class='container_Backlog '>
+        <view class='title'>
+            <text>我的外勤</text>
         </view>
-        <view>
-          <text>吉林省腾放有限公司</text>
+        <view class='flexRow'>
+            <view class='Photo'>
+                <image src='{{userInfo.avatarUrl}}' class='PersonalHead'></image>
+            </view>
+            <view class='ContentRight'>
+                <view class='flexRow'>
+                    <text class='Name'>{{userInfo.nickName}}</text>
+                    <text class='Date'>{{date}}</text>
+                </view>
+                <view>
+                    <text>吉林省腾放有限公司</text>
+                </view>
+            </view>
         </view>
-      </view>
     </view>
-  </view>
-  <!--签到  -->
-  <view class='container_Leave  A'>
-    <view class=''>
-      <text></text>
+    <!--签到  -->
+    <view class='container_Map '>
+        <map id="map" class='Map' longitude="{{longitude}}" latitude="{{latitude}}" scale="15" show-location style="width: 92%; height: 92%;">
+        </map>
     </view>
-  </view>
-  <!--外勤签单  -->
-  <!-- <view class='container_Field  B  flexCol'>
-
-    <view class='fieldwork'>
-      <image src='/images/pic_13.png' class='pic_3'></image>
+    <view class='Sign flexRow'>
+        <text class='SignCon' bindtap='Sign_Come'>签到</text>
+        <text class='SignCon' bindtap='Sign_back'>签退</text>
     </view>
-    <view class='fieldwork_a'>
-      <text>我在【吉林省长春市南关区...签到】</text>
+    <!--外勤签单 -->
+    <view class='container_Field  flexCol'>
+        <view class='fieldwork'>
+            <image src='/images/pic_13.png' class='FieldworkPic'></image>
+            <text>外勤签单</text>
+        </view>
+        <view class='fieldwork_Sign flexCol'>
+            <text class=' Sign_text'>我在{{Address}}
+                <text wx:if="{{Sign==1}}">签到</text>
+            <text wx:if="{{Sign==0}}">签退</text>
+            </text>
+            <view class='ValidateTip flexRow' wx:if="{{Validate}}">
+                <icon type="warn" size="16" />
+                <text class='validate'>{{Validate}}</text>
+            </view>
+        </view>
     </view>
-    <view class='fieldwork_b'>
-      <image src='/images/pic_7.png' class='pic_4'></image>
-      <image src='/images/pic_8.png' class='pic_4'></image>
+    <view class='page_down'>
+        <button type="default" class='Submit_button' bindtap='Submit_button'>
+            立即提交
+        </button>
     </view>
-  </view> -->
-  <!-- <view class='container_Field  B  flexCol'>
-
-    <view class='fieldwork'>
-      <image src='/images/pic_14.png' class='pic_3'></image>
-    </view>
-    <view class='fieldwork_a'>
-      <text></text>
-    </view>
-    <view class='fieldwork_b'>
-      <image src='/images/pic_9.png' class='pic_4'></image>
-      <image src='/images/pic_10.png' class='pic_4'></image>
-    </view>
-  </view> -->
-
-  <view class='page_down'>
-    <view>
-      <button type="default" class='button_1'>
-        立即提交
-      </button>
-    </view>
-  </view>
-
-
-
-
-
-
 </view>

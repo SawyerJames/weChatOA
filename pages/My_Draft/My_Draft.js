@@ -11,7 +11,8 @@ Page({
                 goname: '请假原因',
                 gocontent: '世界那么大，我想去看看。。。',
                 // 审批状态：0请假申请
-                state: 0
+                state: 0,
+                id: 1
             },
             {
                 time: '2018-01-18',
@@ -20,7 +21,8 @@ Page({
                 goname: '请假原因',
                 gocontent: '世界那么大，我想去看看。。。',
                 // 审批状态：公出申请
-                state: 1
+                state: 1,
+                id: 2
             },
             {
                 time: '2018-01-18',
@@ -29,24 +31,71 @@ Page({
                 goname: '请假原因',
                 gocontent: '世界那么大，我想去看看。。。',
                 // 审批状态：公出申请
-                state: 1
+                state: 1,
+                id: 3
             }
-
         ]
+    },
+    onLoad: function () {
+        var that = this;
+        wx.request({
+            url: '',
+            //向后台传的数据
+            data: {},
+            header: {},
+            method: GET,
+            dataType: json,
+            success: function (res) {
+                that.setData({
+                    List: res
+                })
+            },
+            fail: function (err) { },
+        })
     },
     click_content: function (event) {
         //获取当前item的下标id  通过currentTarget.id
         var id = event.currentTarget.id;
         console.log(id);
+        wx.navigateTo({
+            url: '/pages/Leave_page/Leave_page',
+        })
     },
-    modalcnt: function () {
+    modalcnt: function (e) {
+        var id = e.target.dataset.id
         wx.showModal({
             title: '',
             content: '请问确定删除吗？',
             success: function (res) {
                 if (res.confirm) {
                     console.log('用户点击确定')
-
+                    wx.request({
+                        url: '',
+                        data: {
+                            id: id
+                        },
+                        header: {},
+                        method: POST,
+                        dataType: json,
+                        success: function (res) {
+                            var that = this;
+                            wx.request({
+                                url: '',
+                                //向后台传的数据
+                                data: {},
+                                header: {},
+                                method: GET,
+                                dataType: json,
+                                success: function (res) {
+                                    that.setData({
+                                        List: res
+                                    })
+                                },
+                                fail: function (res) { },
+                            })
+                        },
+                        fail: function (res) { },
+                    })
                 } else if (res.cancel) {
                     console.log('用户点击取消')
                 }
@@ -54,68 +103,3 @@ Page({
         })
     }
 })
-// Page({
-
-//   /**
-//    * 页面的初始数据
-//    */
-//   data: {
-
-//   },
-
-//   /**
-//    * 生命周期函数--监听页面加载
-//    */
-//   onLoad: function (options) {
-
-//   },
-
-//   /**
-//    * 生命周期函数--监听页面初次渲染完成
-//    */
-//   onReady: function () {
-
-//   },
-
-//   /**
-//    * 生命周期函数--监听页面显示
-//    */
-//   onShow: function () {
-
-//   },
-
-//   /**
-//    * 生命周期函数--监听页面隐藏
-//    */
-//   onHide: function () {
-
-//   },
-
-//   /**
-//    * 生命周期函数--监听页面卸载
-//    */
-//   onUnload: function () {
-
-//   },
-
-//   /**
-//    * 页面相关事件处理函数--监听用户下拉动作
-//    */
-//   onPullDownRefresh: function () {
-
-//   },
-
-//   /**
-//    * 页面上拉触底事件的处理函数
-//    */
-//   onReachBottom: function () {
-
-//   },
-
-//   /**
-//    * 用户点击右上角分享
-//    */
-//   onShareAppMessage: function () {
-
-//   }
-// })

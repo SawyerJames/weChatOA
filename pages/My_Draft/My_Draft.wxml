@@ -18,9 +18,9 @@
         <!--进度  -->
         <view class='content_middle'>
         <block  wx:for="{{List}}">    
-                <view class='content_down  flexCol  pos_1' bindtap="click_content" id='{{key}}'>
+                <view class='content_down  flexCol  pos_1' bindtap="click_content"   data-id='{{item.id}}'>
                     <view class='abs'>
-                    <icon type="cancel" size="20" color="#3e3c3b" bindtap="modalcnt" />
+                    <icon type="cancel" size="20" color="#3e3c3b" bindtap="modalcnt"  data-id='{{item.id}}' />
                     </view>
                     <view class='Height'>
                     <text>{{item.time}}</text>

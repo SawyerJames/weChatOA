@@ -1,15 +1,16 @@
 <view class="container">
-    <view class="container_Bg_1">
-        <!--顶部背景  -->
-    </view>
     <view class='page_one'>
-        <!--我的报销  -->
+        <!-- 背景 -->
+        <view class="container_Bg"></view>
+        <!--我的请假  -->
         <view class='page_up'>
-            <!--总-->
+            <!--标题-->
             <view class='title'>
                 <text>我的请假</text>
             </view>
+            <!--请假主体  -->
             <view>
+                <!--请假类型  -->
                 <view class='content_a flexRow AllHeight'>
                     <view class='left'>
                         <text>请假类型</text>
@@ -20,23 +21,25 @@
                         </view>
                     </picker>
                 </view>
+                <!--开始时间  -->
                 <view class='flexRow AllHeight'>
                     <view class='left'>
                         <text>开始时间</text>
                     </view>
                     <view class='rights flexRow'>
-                        <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+                        <picker mode="date" value="{{date_start}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
                             <view class="rights_a picker">
-                                {{date}}
+                                {{date_start}}
                             </view>
                         </picker>
-                        <picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
+                        <picker mode="time" value="{{time_start}}" start="09:01" end="21:01" bindchange="bindTimeChange">
                             <view class="picker">
-                                {{time}}
+                                {{time_start}}
                             </view>
                         </picker>
                     </view>
                 </view>
+                <!--结束时间  -->
                 <view class='flexRow AllHeight'>
                     <view class='left'>
                         <text>结束时间</text>
@@ -54,10 +57,12 @@
                         </picker>
                     </view>
                 </view>
+                <!--申请时长  -->
                 <view class='flexRow AllHeight'>
                     <view class='left'>
                         <text>申请时长</text>
                     </view>
+                    <!--加减法  -->
                     <view class='right   flexRow   Add'>
                         <view class='add' bindtap="Click_add">
                             <image src='/images/pic_15.png' class='pic_5'></image>
@@ -70,38 +75,21 @@
                         </view>
                     </view>
                 </view>
+                <!--请假内容  -->
                 <view class='flexRow AllHeights   flexCol'>
                     <view class='left'>
                         <text>请假内容</text>
                     </view>
                     <view class='rights'>
-                        <textarea class='text'></textarea>
-                        <view class='BigHeight'>
-                            <view>
-                                <image src='/images/pic_7.png' class='pic_4'></image>
-                                <image src='/images/pic_8.png' class='pic_4'></image>
-                            </view>
-                        </view>
+                        <textarea class='text' bindinput="bindTextAreaBlur"></textarea>
                     </view>
                 </view>
             </view>
         </view>
-        <!--按钮  -->
+        <!--按钮组  -->
         <view class='page_down'>
-            <view>
-                <button type="default" class='button_1' bindtap="Save" >
-                    保存草稿
-                </button>
-            </view>
-            <view>
-                <button type="default" class='button_1'  bindtap="Lay">
-                    立即提交
-                </button>
-            </view>
+            <button type="default" class='button_1' bindtap="Save">保存草稿</button>
+            <button type="default" class='button_1' bindtap="Lay">立即提交</button>
         </view>
     </view>
-
-
-
-
 </view>
