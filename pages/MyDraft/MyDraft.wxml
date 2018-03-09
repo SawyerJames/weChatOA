@@ -1,0 +1,48 @@
+<view class="container">
+    <!--顶部背景  -->
+    <view class="container_Bg"></view>
+    <!--我的草稿容器  -->
+    <view class='page_one'>
+        <view class='page_up'>
+            <!--我的草稿标题-->
+            <view class='title'>
+                <text>我的草稿</text>
+            </view>
+            <view class='content'>
+                <view class='Title_left'>
+                    <text>草稿列表</text>
+                </view>
+                <!--循环草稿列表  -->
+                <view class='content_List'>
+                    <block wx:for="{{oa_attendance_leave_info_backup}}">
+                        <!--列表单项  -->
+                        <view
+                            class='content_down flexCol List_frame'
+                            bindtap="click_content"
+                            data-id='{{item.Id}}'>
+                            <!--每个列表单项的关闭按钮  -->
+                            <view class='close'>
+                                <icon
+                                    type="cancel"
+                                    size="20"
+                                    color="#3e3c3b"
+                                     catchtap="modalcnt"
+                                    data-id='{{item.Id}}'/>
+                            </view>
+                            <!--列表单项数据渲染  -->
+                            <view class='FrameHeight'>
+                                <text>{{item.Date}}</text>
+                                <text>{{item.UserName}}</text>
+                                <text wx:if="{{item.State == 0}}">请假申请</text>
+                                <text wx:if="{{item.State == 1}}">公出申请</text>
+                            </view>
+                            <view class='FrameHeight'>
+                                <text>请假原因：{{item.Type}}</text>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -13,7 +13,7 @@ page {
     flex-direction: column;
 }
 
-/*内容页  */
+/*具体内容页面  */
 
 .page_up {
     width: 710rpx;
@@ -23,7 +23,7 @@ page {
     margin: 0 0 0 20rpx;
 }
 
-/*标题我的报销  */
+/*标题  */
 
 .title {
     background: #e8f2ed;
@@ -31,208 +31,147 @@ page {
     line-height: 80rpx;
     text-align: center;
     font-weight: 600;
-    border-radius: 10rpx 10rpx 0 0;
-}
-
-/*报销编号角标  */
-
-.Rei_Pic {
-    width: 20rpx;
-    height: 20rpx;
-}
-
-/*报销明细角标  */
-
-/* .Detail_pic {
-    width: 24rpx;
-    height: 24rpx;
-} */
-
-/*备注类LOGO */
-
-.remark {
-    width: 34rpx;
-    height: 34rpx;
-    vertical-align: middle;
-}
-
-/*产品日期选择  */
-
-.Date {
-    width: 200rpx;
-    margin-left: 360rpx;
+    border-radius: 10rpx;
 }
 
 /*所有高度相同的view  */
 
 .AllSameHeight {
+    min-height: 60rpx;
     background-color: #fff;
-    border-bottom: 1px solid #eeeded;
-    height: 90rpx;
-    line-height: 90rpx;
-}
-
-.RemarkHeight {
-    height: 60rpx;
     line-height: 60rpx;
-    background-color: #eeeded;
+    border-radius: 10rpx;
 }
 
-/*上传的图片  */
-
-.tempImg {
-    width: 300rpx;
-    height: 300rpx;
+.ReiRemarks {
+    min-height: 60rpx;
 }
 
-.Pictures .UploadPic {
-    min-height: 100rpx;
-    min-width: 500rpx;
-    margin-bottom: 100rpx;
-
-}
-
-.Pictures .Pic_add {
-    position: absolute;
-    bottom: 10rpx;
-    padding-left: 500rpx;
-}
-
-/*已经上传的图片样式  */
-
-.Pictures {
-    position: relative;
-    min-height: 140rpx;
-    /* margin: 30rpx 0 0 450rpx; */
-}
-
-/*上传的图片  */
-
-.tempImg {
-    margin-left: 35rpx;
-}
-
-.Pictures .UploadPic {
-    min-height: 100rpx;
-    min-width: 700rpx;
-    margin-bottom: 100rpx;
-}
-
-.Pictures .Pic_add {
-    position: absolute;
-    bottom: 10rpx;
-    padding-left: 500rpx;
-}
-
-/*备注输入  */
-
-.RemarkDetailed {
-    min-height: 150rpx;
-}
-
-.RemarkDetailed textarea {
-    letter-spacing: 4rpx;
-    margin: 10rpx auto;
-}
-
-.AddPic {
-    width: 60rpx;
-    height: 60rpx;
-    margin: 10px;
-}
-
-/*报销编号绿色字  */
-
-.GreenFont {
-    color: #30a072;
+.ReiRemarks text {
+    min-height: 800rpx;
 }
 
 /*左边竖排字对其  */
 
 .Title_left {
-    width: 180rpx;
+    width: 580rpx;
+    min-height: 60rpx;
     margin-left: 20rpx;
 }
 
-.Title_left text {
+.Title_left .ContentFont {
     padding-left: 10px;
+    color: #30a072;
 }
 
-.Title_leftCon {
-    width: 180rpx;
-    margin-left: 40rpx;
+.Title_left .Date {
+    color: #30a072;
 }
-
-.Title_leftCon text {
-    padding-left: 10px;
-    vertical-align: middle;
-}
-
-/*右边竖排字对其  */
 
 .Title_right {
-    width: 470rpx;
-    margin-left: 20rpx;
-    text-align: right;
+    color: red;
+    font-size: 32rpx;
+    padding-right: 10rpx;
+    width: 140rpx;
 }
 
-/*金额  */
+/*进度  */
 
-.Amount {
-    width: 300rpx;
-    margin-left: 200rpx;
+.content_middle {
+    width: 620rpx;
+    min-height: 300rpx;
+    margin-top: 24rpx;
 }
 
-.Amount input {
-    height: 90rpx;
-    line-height: 90rpx;
-    text-align: right;
+.content_down {
+    width: 620rpx;
+    height: 140rpx;
+    border-left: 2px solid #30a072;
+    margin-left: 60rpx;
+    display: flex;
 }
 
-/* 
-.RemarkHeight .Title_rightCon text {
-    padding: 20rpx;
-} */
+/*淡绿色背景条  */
 
-.RemarkDetailed input {
-    text-align: center;
-    padding-top: 40rpx;
+.detailed {
+    width: 580rpx;
+    height: 100rpx;
+    background: #e8f2ed;
+    margin: 20rpx 0 0 40rpx;
+    border-radius: 6rpx;
 }
 
-/*按钮  */
+/*自己  发送申请  */
 
-.button_Lay {
-    margin: 0 auto;
+.detailed .ConText {
+    height: 30rpx;
+    margin: 12rpx 0 0 0;
 }
+
+.detailed .ConText text {
+    width: 170rpx;
+    height: 50rpx;
+    margin-left: 16rpx;
+    text-align: left;
+    letter-spacing: -1px;
+}
+
+/*姓名  */
+
+.detailed .ConText .ConText_Name {
+    font-size: 32rpx;
+}
+
+.detailed .ConText_Date {
+    color: #d2d0cf;
+    padding: 8rpx;
+}
+
+/*头像  */
+
+.PhothPic {
+    width: 64rpx;
+    height: 64rpx;
+    padding: 18rpx 0 0 40rpx;
+}
+
+/*下面按钮  */
 
 .page_down {
-    display: flex;
-    width: 710rpx;
-    height: 140rpx;
-    margin: 12rpx 0 24rpx 20rpx;
+    margin: 40rpx 0 0 20rpx;
 }
 
-.page_down view {
-    width: 50%;
-}
-
-.page_down .SaveAndLay_button {
-    width: 200rpx;
+.page_down button {
+    width: 300rpx;
     height: 60rpx;
     line-height: 60rpx;
-    background-color: #3edd9b;
-    color: #fff;
+    text-align: center;
     font-size: 28rpx;
-    margin-top: 50rpx;
+    color: #fff;
+    background: #3edd9b;
+    border: 1px solid #3edd9b;
+    border-radius: 10rpx;
+    margin-top: 20rpx;
 }
 
-.page_down .SaveAndLay_button::after {
+.page_down button::after {
     border: none;
 }
 
-.UploadPic .tempImg {
-    margin-top: 20rpx;
-   
+.Photo {
+    min-height: 200rpx;
+}
+
+.Photo .Title_left .UploadPic {
+    min-height: 100rpx;
+    min-width: 100rpx;
+    margin-bottom: 100rpx;
+    margin: 20rpx 0 0 120rpx;
+}
+
+.Photo .Title_left .UploadPic image {
+    width: 100rpx;
+    height: 100rpx;
 }
 
 /*背景圖片  */

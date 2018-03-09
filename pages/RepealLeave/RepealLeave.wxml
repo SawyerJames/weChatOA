@@ -1,0 +1,84 @@
+<view class="container">
+    <view class="container_Bg">
+        <!--顶部背景  -->
+    </view>
+    <view class='page_one'>
+        <!--我的请假  -->
+        <view class='page_up'>
+            <!--大标题——>我的请假-->
+            <view class='title'>
+                <text>我的请假</text>
+            </view>
+            <view class='content'>
+                <!--请假类型  -->
+                <view class=' flexRow AllSameHeight'>
+                    <view class='Title_left'>
+                        <text>请假类型：</text>
+                        <text class='ContentFont'>{{LeaveType}}</text>
+                    </view>
+                    <text class='Title_right' wx:if="{{LeaveStatus == 0}}">审核中</text>
+                    <text class='Title_right' wx:if="{{LeaveStatus == 1}}">审核完成</text>
+                    <text class='Title_right' wx:if="{{LeaveStatus == 2}}">未通过</text>
+                </view>
+                <!--请假事由  -->
+                <view class=' flexRow AllSameHeight  ReiRemarks'>
+                    <view class='Title_left'>
+                        <text>请假事由：</text>
+                        <text class='ContentFont'>{{TextValue}}</text>
+                    </view>
+                </view>
+                <!--请假天数  -->
+                <view class=' flexRow AllSameHeight'>
+                    <view class='Title_left'>
+                        <text>请假天数：</text>
+                        <text class='Date'>{{Time}}天</text>
+                    </view>
+                </view>
+                <!--请假时间  -->
+                <view class='flexRow AllSameHeight'>
+                    <view class='Title_left'>
+                        <text>请假时间：</text>
+                        <text class='Date'>{{StartTime}}至{{EndTime}}</text>
+                    </view>
+                </view>
+                <!--请假图片  -->
+                <view class='flexRow AllSameHeight Photo'>
+                    <view class='Title_left'>
+                        <text>请假图片：</text>
+                         <view class='UploadPic'>
+                            <image wx:for="{{ReiImg}}" src='{{item}}'></image> 
+                         </view>
+                    </view>
+                </view>
+                <!--审批进度  -->
+                <view class='content_middle'>
+                    <!--循环审批列表  -->
+                    <block wx:for="{{InfoList}}">
+                        <view class='content_down'>
+                            <view class='detailed flexRow'>
+                                <view class='photo'>
+                                    <image src='{{item.Header}}' class='PhothPic'></image>
+                                </view>
+                                <view class='ConText flexCol'>
+                                    <text class='ConText_Name'>{{item.Name}}</text>
+                                    <text wx:if="{{item.Status == 0}}">审核中</text>
+                                    <text wx:if="{{item.Status == 1}}">审核完成</text>
+                                    <text wx:if="{{item.Status == 2}}">未通过</text>
+                                </view>
+                                <view class='ConText_Date'>
+                                    <text>{{item.Time}}</text>
+                                </view>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </view>
+        <!--按钮组  -->
+        <view class='page_down flexRow'>
+            <button type="default" class='TipButton' bindtap="modalcnt">
+                撤销申请
+            </button>
+        </view>
+    </view>
+</view>

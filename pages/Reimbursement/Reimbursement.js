@@ -1,7 +1,7 @@
 Page({
     data: {
         // 报销编号
-        reiNumber: ['demo1', 'demo2', 'demo3', 'demo4'],
+        reiNumber: ['编号1', '编号2', '编号3', '编号4'],
         index: 0,
         // 成本中心
         cost_centre: ['1', '2', '3', '4'],
@@ -9,23 +9,20 @@ Page({
         // 报销科目
         cost_subject: ['5', '6', '7', '8'],
         subject: 0,
-        // 起始日期
-        date_start: '2018-01-01',
-        date_end: '2019-01-01',
-        // 金额及备注
+        date: '2018-01-01',
+        //金额及备注
         money: '',
         remark: '',
         // 图片临时缓存路径
-        tempFilePaths: '',
-        // base64位图
-        file1: ""
+        tempFilePaths: []
     },
 
-    // 监听页面加载
+    // 页面加载前
     onLoad: function (options) {
+
     },
 
-    // 报销编号当前选择
+    //报销编号当前选择
     bindReiNumber: function (e) {
         this.setData({
             index: e.detail.value
@@ -36,6 +33,7 @@ Page({
     bindCost_centre: function (e) {
         this.setData({
             cost: e.detail.value,
+
         })
     },
 
@@ -43,32 +41,26 @@ Page({
     bindReiType: function (e) {
         this.setData({
             subject: e.detail.value,
+
         })
     },
 
-    // 产品开始日期
-    bindDateStart: function (e) {
-        console.log(e.detail.value);
+    //产品日期
+    bindDate: function (e) {
         this.setData({
-            date_start: e.detail.value
-        })
-    },
-    
-    // 产品结束日期
-    bindDateEnd: function (e) {
-        this.setData({
-            date_end: e.detail.value
+            date: e.detail.value
         })
     },
 
-    // 金额及备注
-    bindMoney: function (e){
+    // 金额
+    bindMoney: function (e) {
         this.setData({
             money: e.detail.value
         })
     },
-    bindRemark: function (e) {
-        console.log(e.detail.value)
+
+    // 备注
+    bindRemMark: function (e) {
         this.setData({
             remark: e.detail.value
         })
@@ -80,7 +72,7 @@ Page({
         // 选择图片接口
         wx.chooseImage({
             // 默认图片数 
-            count: 1,
+            count: 4,
             // 可以指定是原图还是压缩图，默认二者都有
             sizeType: ['original', 'compressed'],
             // 可以指定来源是相册还是相机，默认二者都有
@@ -93,64 +85,80 @@ Page({
             }
         });
     },
-    // 清除图片
-    clearimage: function(){
-        this.setData({
-            tempFilePaths: '',
-        })
-    },
 
-    // 保存草稿
-    Save: function () {
-        // 日期拼接
-        var date = this.data.date_start + ' ' + this.data.date_end;
-        // 发送数据
-        wx.request({
-            url: 'https://oa.jltengfang.com/small/index/payment',
-            data: {
-                Uid: wx.getStorageSync('user'),
-                DocumentNumber: this.data.reiNumber[this.data.index],
-                SubjectName: this.data.cost_subject[this.data.subject],
-                Amount: this.data.money,
-                Img: this.data.tempFilePaths,
-                Remark: this.data.remark,
-                Date: date
-            },
-            header: {
-                'content-type': 'application/json',
-                'Cookie': 'PHPSESSID=' + wx.getStorageSync('session_id'),
-                'Flag': 'MiniApp'
-            },
-            method: 'POST',
-            dataType: 'json',
-            success: function (res) { }
-        })
+    // 清除图片
+    clearimage: function () {
+        this.setData({
+            tempFilePaths: ''
+        });
     },
 
     // 立即提交
-    Lay: function(){
-        // 日期拼接
-        var date = this.data.date_start + ' ' + this.data.date_end;
-        // 发送数据
-        wx.request({
-            url: 'https://oa.jltengfang.com/small/index/payment',
-            data: {
-                Uid: wx.getStorageSync('user'),
-                DocumentNumber: this.data.reiNumber[this.data.index],
-                SubjectName: this.data.cost_subject[this.data.subject],
-                Amount: this.data.money,
-                Img: this.data.file1,
-                Remark: this.data.remark,
-                Date: date
-            },
-            header: {
-                'content-type': 'application/json',
-                'Cookie': 'PHPSESSID=' + wx.getStorageSync('session_id'),
-                'Flag': 'MiniApp'
-            },
-            method: 'POST',
-            dataType: 'json',
-            success: function (res) { }
-        })
+    Lay: function () {
+        if (this.data.tempFilePaths == '') {
+            wx.showToast({
+                title: '图片未上传',
+                mask: true,
+                icon: 'loading'
+            })
+        }
+        if (this.data.remark == '') {
+            wx.showToast({
+                title: '未填写详细备注',
+                mask: true,
+                icon: 'loading'
+            })
+        }
+        if (this.data.money == '') {
+            wx.showToast({
+                title: '未填写金额',
+                mask: true,
+                icon: 'loading'
+            })
+        }
+        if (this.data.tempFilePaths != '' && this.data.remark != '' && this.data.money != '') {
+            var that = this;
+            // 验证通过：发送立即提交时请求
+            wx.request({
+                url: 'https://oa.jltengfang.com/small/index/payment',
+                data: {
+                    DocumentNumber: this.data.index,
+                    SubjectName: this.data.cost_subject[this.data.subject],
+                    Amount: this.data.money,
+                    Date: this.data.date,
+                    Img: this.data.tempFilePaths,
+                    Remark: this.data.remark,
+                    Uid: wx.getStorageSync('user'),
+                },
+                header: {
+                    'content-type': 'application/json',
+                    'Cookie': 'PHPSESSID=' + wx.getStorageSync('session_id'),
+                    'Flag': 'MiniApp'
+                },
+                method: 'POST',
+                dataType: 'json',
+                success: function (res) {
+                    // 如果报销通过，跳至已提交页
+                    if (res.data.status == 'OK') {
+                        wx.showToast({
+                            title: '正在提交',
+                            mask: true,
+                            icon: 'loading',
+                            success: function () {
+                                setTimeout(function () {
+                                    // 返回首页
+                                    wx.navigateBack({
+                                        delta: 2
+                                    })
+                                }, 1500);
+                            }
+                        })
+                    }
+                },
+                fail: function (err) {
+                    return;
+                }
+            })
+        }
     }
 })

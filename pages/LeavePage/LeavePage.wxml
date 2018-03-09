@@ -1,0 +1,113 @@
+<view class="container">
+    <!--顶部背景  -->
+    <view class="container_Bg"></view>
+    <view class='page_one flexCol'>
+        <!--我的报销  -->
+        <view class='page_up'>
+            <!--标题我的请假申请-->
+            <view class='My_title'>
+                <text>我的请假</text>
+            </view>
+            <!--整体选择加内容  -->
+            <view>
+                <!--选择-->
+                <view class='LeaveType flexRow AllSameHeight'>
+                    <view class='Title_left'>
+                        <text>请假类型</text>
+                    </view>
+                    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                        <view class='Title_right'>当前选择：{{array[index]}}
+                            <image src='/images/pic_1.png' class='LeavePic'></image>
+                        </view>
+                    </picker>
+                </view>
+                <!--开始时间  -->
+                <view class='flexRow AllSameHeight'>
+                    <view class='Title_left'>
+                        <text>开始时间</text>
+                    </view>
+                    <view class='Title_rightFrame flexRow'>
+                        <picker mode="date" value="{{date_start}}" start="{{date_start}}" bindchange="bindDateChange">
+                            <view class="picker">
+                                {{date_start}}
+                            </view>
+                        </picker>
+                        <picker mode="time" value="{{time_start}}" bindchange="bindTimeChange">
+                            <view class="picker">
+                                {{time_start}}
+                            </view>
+                        </picker>
+                    </view>
+                </view>
+                <!--结束时间  -->
+                <view class='flexRow AllSameHeight'>
+                    <view class='Title_left'>
+                        <text>结束时间</text>
+                    </view>
+                    <view class='Title_rightFrame flexRow'>
+                        <picker mode="date" value="{{date_end}}" start="{{date_end}}" bindchange="bindDateChange_end">
+                            <view class="Title_rightFrame_Con picker">
+                                {{date_end}}
+                            </view>
+                        </picker>
+                        <picker mode="time" value="{{time_end}}" bindchange="bindTimeChange_end">
+                            <view class="picker">
+                                {{time_end}}
+                            </view>
+                        </picker>
+                    </view>
+                </view>
+                <!--申请时长  -->
+                <view class='flexRow AllSameHeight'>
+                    <view class='Title_left'>
+                        <text>申请时长</text>
+                    </view>
+                    <view class='Title_right flexRow hold_button'>
+                        <view class='add_button' bindtap="Click_add">
+                            <image src='/images/pic_15.png' class='AddPicture'></image>
+                        </view>
+                        <view class='AddNum'>
+                            <text>{{num}}天</text>
+                        </view>
+                        <view class='reduce' bindtap="Click_adv">
+                            <image src='/images/pic_16.png' class='AddPicture'></image>
+                        </view>
+                    </view>
+                </view>
+                <!--请假内容  -->
+                <view class='flexRow LeaveHeight flexCol'>
+                    <view class='Title_left'>
+                        <text>请假原因</text>
+                    </view>
+
+                    <view class='Title_righdtFrame'>
+                        <textarea placeholder='请填写请假原因' class='text' bindinput='bindTextAreaBlur' value="{{textValue}}">
+                        </textarea>
+                    </view>
+                </view>
+                <!-- 上传图片 -->
+                <view class='Pictures flexCol'>
+                    <view class='Title_left'>
+                        <text>请假图片</text>
+                    </view>
+                    <view class='UploadPic'>
+                        <image wx:if="{{tempFilePaths.length > 0}}" wx:for="{{tempFilePaths}}" src="{{item}}" mode="aspecFill" class="tempImg" />
+                    </view>
+                    <view class='Pic_add'>
+                        <image src='/images/pic_7.png' class='AddPic' bindtap="chooseimage"></image>
+                        <image src='/images/pic_8.png' class='AddPic' bindtap="clearimage"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!--按钮  -->
+        <view class='page_down'>
+            <button type="default" class='SaveAndLay_button' bindtap="Save">
+                保存草稿
+            </button>
+            <button type="default" class='SaveAndLay_button' bindtap="Lay">
+                立即提交
+            </button>
+        </view>
+    </view>
+</view>

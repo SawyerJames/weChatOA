@@ -2,240 +2,236 @@ page {
     background-color: #f0f4f5;
 }
 
-/*主页面  */
+.container_Map {
+    width: 94%;
+    height: 420rpx;
+    border-radius: 3rpx;
+    margin-top: -40rpx;
+    background: #fff;
+    margin: 0 auto;
+}
 
-.page_one {
-    position: absolute;
-    top: 50rpx;
-    left: 0;
+.container_Map .Map {
+    margin: 20rpx auto;
+}
+
+/*签到  */
+
+.Sign {
+    width: 94%;
+}
+
+.Sign .SignCon {
+    width: 50%;
+    height: 80rpx;
+    line-height: 80rpx;
+    margin: -20rpx auto;
+    background: #fff;
+    text-align: center;
+    margin-bottom: 10rpx;
+    border-right: #f0f4f5 1px solid;
     font-size: 28rpx;
+}
+
+/*签到具体的位置  */
+
+.Sign_text {
+    width: 600rpx;
+    text-align: center;
+}
+
+.Validate {
+    width: 410rpx;
+    height: 50rpx;
+    text-align: center;
+    color: red;
+}
+
+.ValidateTip {
+    width: 480rpx;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.ValidateTip text {
+    height: 50rpx;
+    line-height: 50rpx;
+}
+
+.Sign_text text {
+    color: #3edd9b;
+}
+
+/*相当于body  */
+
+.container {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    min-height: 100%;
+    width: 100%;
 }
 
-/*内容页  */
+/*个人头像  */
 
-.page_up {
-    width: 710rpx;
-    background-color: #fff;
-    box-shadow: 5rpx 5rpx 5rpx #dfe3e6;
-    border-radius: 10rpx;
-    margin: 0 0 0 20rpx;
+.PersonalHead {
+    width: 120rpx;
+    height: 120rpx;
+    margin-left: 50px;
+    border-radius: 100rpx;
 }
 
-/*标题我的报销  */
+/*日期  */
+
+.DatePic {
+    width: 36rpx;
+    height: 36rpx;
+    margin: 8rpx 20rpx 0 20px;
+}
+
+.Date {
+    font-size: 28rpx;
+    color: #3edd9b;
+    height: 30rpx;
+    line-height: 30rpx;
+}
 
 .title {
     background: #e8f2ed;
     height: 80rpx;
     line-height: 80rpx;
     text-align: center;
-    font-weight: 600;
+    font-size: 28rpx;
     border-radius: 10rpx 10rpx 0 0;
+    font-weight: 600;
 }
 
-/*报销编号角标  */
+/* 头像*/
 
-.Rei_Pic {
-    width: 20rpx;
-    height: 20rpx;
-}
-
-/*报销明细角标  */
-
-/* .Detail_pic {
-    width: 24rpx;
-    height: 24rpx;
-} */
-
-/*备注类LOGO */
-
-.remark {
-    width: 34rpx;
-    height: 34rpx;
-    vertical-align: middle;
-}
-
-/*产品日期选择  */
-
-.Date {
-    width: 200rpx;
-    margin-left: 360rpx;
-}
-
-/*所有高度相同的view  */
-
-.AllSameHeight {
+.container_Backlog {
+    position: absolute;
+    width: 710rpx;
+    height: 260rpx;
+    margin: 140rpx 0rpx 0rpx 0rpx;
     background-color: #fff;
-    border-bottom: 1px solid #eeeded;
-    height: 90rpx;
-    line-height: 90rpx;
+    box-shadow: 5rpx 5rpx 5rpx #dfe3e6;
+    border-radius: 10rpx 10rpx 0 0;
+    font-size: 32rpx;
 }
 
-.RemarkHeight {
+/*姓名 */
+
+.ContentRight .Name {
+    font-weight: 600;
+    width: 200rpx;
+    text-align: left;
+}
+
+.NickName {
+    width: 360rpx;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/*公司  */
+
+.company {
+    letter-spacing: 4rpx;
+    font-size: 30rpx;
+}
+
+/*头像  */
+
+.Photo {
+    width: 40%;
+    margin-top: 30rpx;
+}
+
+.ContentRight {
+    width: 70%;
+    margin-top: 30rpx;
+    margin-left: 10rpx;
+}
+
+.ContentRight text {
+    height: 40rpx;
+    line-height: 40rpx;
+    text-align: center;
+}
+
+/* 外勤签单 */
+
+.container_Field {
+    width: 710rpx;
+    height: 180rpx;
+    min-height: 180rpx;
+    background-color: #fff;
+    box-shadow: 5rpx 5rpx 5rpx #dfe3e6;
+    border-radius: 10rpx;
+    display: flex;
+    font-size: 28rpx;
+}
+
+.container_Field view {
+    margin-top: 2rpx;
+}
+
+/*外勤签单  */
+
+.fieldwork {
+    height: 60rpx;
+}
+
+.FieldworkPic {
+    width: 30rpx;
+    height: 30rpx;
+    margin: 10rpx 20rpx 0 40rpx;
+}
+
+/*签到地址  */
+
+.fieldwork text {
     height: 60rpx;
     line-height: 60rpx;
-    background-color: #eeeded;
+    color: #3edd9b;
 }
 
-/*上传的图片  */
-
-.tempImg {
-    width: 300rpx;
-    height: 300rpx;
-}
-
-.Pictures .UploadPic {
-    min-height: 100rpx;
-    min-width: 500rpx;
-    margin-bottom: 100rpx;
-
-}
-
-.Pictures .Pic_add {
-    position: absolute;
-    bottom: 10rpx;
-    padding-left: 500rpx;
-}
-
-/*已经上传的图片样式  */
-
-.Pictures {
-    position: relative;
-    min-height: 140rpx;
-    /* margin: 30rpx 0 0 450rpx; */
-}
-
-/*上传的图片  */
-
-.tempImg {
-    margin-left: 35rpx;
-}
-
-.Pictures .UploadPic {
-    min-height: 100rpx;
-    min-width: 700rpx;
-    margin-bottom: 100rpx;
-}
-
-.Pictures .Pic_add {
-    position: absolute;
-    bottom: 10rpx;
-    padding-left: 500rpx;
-}
-
-/*备注输入  */
-
-.RemarkDetailed {
-    min-height: 150rpx;
-}
-
-.RemarkDetailed textarea {
-    letter-spacing: 4rpx;
-    margin: 10rpx auto;
-}
-
-.AddPic {
-    width: 60rpx;
-    height: 60rpx;
-    margin: 10px;
-}
-
-/*报销编号绿色字  */
-
-.GreenFont {
-    color: #30a072;
-}
-
-/*左边竖排字对其  */
-
-.Title_left {
-    width: 180rpx;
-    margin-left: 20rpx;
-}
-
-.Title_left text {
-    padding-left: 10px;
-}
-
-.Title_leftCon {
-    width: 180rpx;
-    margin-left: 40rpx;
-}
-
-.Title_leftCon text {
-    padding-left: 10px;
-    vertical-align: middle;
-}
-
-/*右边竖排字对其  */
-
-.Title_right {
-    width: 470rpx;
-    margin-left: 20rpx;
-    text-align: right;
-}
-
-/*金额  */
-
-.Amount {
-    width: 300rpx;
-    margin-left: 200rpx;
-}
-
-.Amount input {
-    height: 90rpx;
-    line-height: 90rpx;
-    text-align: right;
-}
-
-/* 
-.RemarkHeight .Title_rightCon text {
-    padding: 20rpx;
-} */
-
-.RemarkDetailed input {
-    text-align: center;
-    padding-top: 40rpx;
-}
-
-/*按钮  */
-
-.button_Lay {
+.fieldwork_Sign {
     margin: 0 auto;
 }
+
+/*按钮框架  */
 
 .page_down {
     display: flex;
     width: 710rpx;
-    height: 140rpx;
-    margin: 12rpx 0 24rpx 20rpx;
 }
 
 .page_down view {
     width: 50%;
+    margin: 0 auto;
 }
 
-.page_down .SaveAndLay_button {
+/*提交按钮  */
+
+.page_down .Submit_button {
     width: 200rpx;
     height: 60rpx;
     line-height: 60rpx;
     background-color: #3edd9b;
+    border: none;
+    margin-top: 30rpx;
+    margin-bottom: 2rpx;
     color: #fff;
     font-size: 28rpx;
-    margin-top: 50rpx;
+    text-align: center;
 }
 
-.page_down .SaveAndLay_button::after {
+.page_down .Submit_button::after {
     border: none;
 }
-
-.UploadPic .tempImg {
-    margin-top: 20rpx;
-   
-}
-
-/*背景圖片  */
 
 .container_Bg {
     width: 100%;

@@ -1,0 +1,56 @@
+<view class="container">
+    <view class="container_Bg">
+        <!--顶部背景  -->
+    </view>
+    <view class='page_one'>
+        <!--我的报销  -->
+        <view class='page_up'>
+            <!--大标题——>我的请假-->
+            <view class='title'>
+                <text>我的报销</text>
+            </view>
+            <view class='content'>
+                <!--报销编号  -->
+                <view class=' flexRow AllSameHeight'>
+                    <view class='Title_left'>
+                        <text>报销编号：</text>
+                        <text class='ContentFont'>{{reiNumber}}</text>
+                    </view>
+                </view>
+                <!--报销金额  -->
+                <view class=' flexRow AllSameHeight'>
+                    <view class='Title_left'>
+                        <text>报销金额：</text>
+                        <text class='ContentFont'>{{reiMoney}}</text>
+                    </view>
+                </view>
+                <!--报销备注  -->
+                <view class=' flexRow AllSameHeight ReiRemarks'>
+                    <view class='Title_left '>
+                        <text>报销备注：</text>
+                        <text class='ContentFont'>{{reiRemark}}</text>
+                    </view>
+                </view>
+                <!--报销图片  -->
+                <view class='flexRow AllSameHeight'>
+                    <view class='Title_left '>
+                        <text class=''>报销图片：</text>
+                        <view class='UploadPic'>
+                            <!-- <image wx:if="{{reiImg.length > 0}}" wx:for="{{reiImg}}" src='{{itme}}'></image> -->
+                            <image src='/images/tip.png'></image>
+                            <image src='/images/tip.png'></image>
+                            <image src='/images/tip.png'></image>
+                            <image src='/images/tip.png'></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!--按钮组  -->
+        <view class='page_down flexRow'>
+            <button type="default" class='TipButton' bindtap="modalcnt">
+                撤销申请
+            </button>
+        </view>
+    </view>
+</view>

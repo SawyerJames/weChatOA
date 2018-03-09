@@ -1,0 +1,100 @@
+<view class="container">
+    <view class="container_Bg"></view>
+    <view class='page_one'>
+        <!--待办事项  -->
+        <view class='page_up'>
+            <!--大标题-->
+            <view class='title'>
+                <text>待办事项</text>
+            </view>
+            <view class='content'>
+                <view class='content_middle'>
+                    <!--请假审批列表  -->
+                    <block wx:for="{{oa_attendance_leave_info}}">
+                        <view class='content_down flexCol ApplyPos'>
+                            <view class='approval flexRow'>
+                                <text class='approval_title'>审批{{item.Type}}申请</text>
+                                <view class='PlanFrame'>
+                                    <text wx:if="{{item.Status == 0}}" class='PlanIcon'>待审批</text>
+                                </view>
+                            </view>
+                            <view class='ApplyHeight'>
+                                <text>类型：{{item.Type}}</text>
+                            </view>
+                            <view class='ApplyHeight'>
+                                <text>开始时间：{{item.StartTime}}</text>
+                            </view>
+                            <view class='ApplyHeight'>
+                                <text>结束时间：{{item.EndTime}}</text>
+                            </view>
+                            <view class='ApplyHeight'>
+                                <text>请假天数：{{item.Time}}天</text>
+                            </view>
+                            <view class='ApplyHeight'>
+                                <text>请假内容：{{item.Description}}</text>
+                            </view>
+                            <view class='ApplyHeight'>
+                                <text>申请人员：{{item.User}}</text>
+                            </view>
+                            <view class='ApplyHeight'>
+                                <text>请假图片：</text>
+                                <view class='UploadPic'>
+                                    <image src='/images/tip.png'></image>
+                                    <image src='/images/tip.png'></image>
+                                    <image src='/images/tip.png'></image>
+                                    <image src='/images/tip.png'></image>
+                                    <!-- <image wx:if="{{item.img.length > 0}}" wx:for='{{item.img}}' wx:for-item="imgItem" src='{{imgItem}}'></image> -->
+                                </view>
+
+                            </view>
+                            <view class='reiBtnContainer'>
+                                <view class="reiBtn" bindtap='pass' data-id="{{item.Id}}" data-formname="oa_attendance_leave_info">同意</view>
+                                <view class="reiBtn" bindtap="refuse" data-id="{{item.Id}}" data-formname="oa_attendance_leave_info">拒绝</view>
+                            </view>
+                        </view>
+                    </block>
+                    <!--报销审批列表  -->
+                    <block wx:for="{{oa_finance_expenses_info}}">
+                        <view class='content_down flexCol ApplyPos'>
+                            <view class='approval flexRow'>
+                                <text class='approval_title'>审批报销申请</text>
+                                <view class='PlanFrame'>
+                                    <text wx:if="{{item.Status == 0}}" class='PlanIcon'>未审批</text>
+                                </view>
+                            </view>
+                            <view class='ApplyHeight'>
+                                <text>报销类型：{{reiArray[item.Type]}}</text>
+                            </view>
+                            <view class='ApplyHeight'>
+                                <text>创建时间：{{item.CreateTime}}</text>
+                            </view>
+                            <view class='ApplyHeight'>
+                                <text>报销明细：{{item.Remark}}</text>
+                            </view>
+                            <view class='ApplyHeight'>
+                                <text>报销金额：{{item.Money}}</text>
+                            </view>
+                            <view class='ApplyHeight'>
+                                <text>申请人员：{{item.UserName}}</text>
+                            </view>
+                            <view class='ApplyHeight'>
+                                <text>报销图片：</text>
+                                <view class='UploadPic'>
+                                    <image src='/images/tip.png'></image>
+                                    <image src='/images/tip.png'></image>
+                                    <image src='/images/tip.png'></image>
+                                    <image src='/images/tip.png'></image>
+                                    <!-- <image wx:if="{{item.img.length > 0}}" wx:for='{{item.img}}' wx:for-item="imgItem" src='{{imgItem}}'></image> -->
+                                </view>
+                            </view>
+                            <view class='reiBtnContainer'>
+                                <view class="reiBtn" bindtap='pass' data-id="{{item.Id}}" data-formname="oa_finance_expenses_info">同意</view>
+                                <view class="reiBtn" bindtap="refuse" data-id="{{item.Id}}" data-formname="oa_finance_expenses_info">拒绝</view>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

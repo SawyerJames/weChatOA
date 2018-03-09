@@ -1,13 +1,16 @@
 <view class='container flexCol'>
-    <view class='logo '>
-        <image src='/images/Logo_OA.png' class='pic'></image>
+    <!--腾放标志  -->
+    <view class='Tf_logo '>
+        <image src='/images/Logo_OA.png' class='logo'></image>
     </view>
-    <view>
-        <text class='font'>腾放OA</text>
-    </view>
+    <text class='Tf_title'>腾放OA</text>
     <!-- 登录输出 -->
-    <input bindinput='cardNumberInput' type='number' class="cardNumber" placeholder='请输入手机号码' placeholder-class="phcolor"></input>
+    <input
+        bindinput='cardNumberInput'
+        type='number'
+        class="cardNumber"
+        placeholder='请输入员工工号'
+        placeholder-class="phcolor">
+    </input>
     <button type='button' bindtap='goIndex' class='goIndex'>立即登录</button>
-    <!-- 登录背景 -->
-    <image src='/images/loginBg.png' class='loginBg'></image>
 </view>

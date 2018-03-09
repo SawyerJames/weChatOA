@@ -5,71 +5,68 @@
     <view class='page_one'>
         <!--申请进度  -->
         <view class='page_up'>
-            <!--总-->
+            <!--大标题-->
             <view class='title'>
                 <text>申请进度</text>
             </view>
             <view class='content'>
-                <view class='content_a flexRow AllHeight'>
-                    <view class='left'>
+                <view class='content_a flexRow AllSameHeight'>
+                    <view class='Title_left'>
                         <text>申请进度</text>
                     </view>
                 </view>
-                <!--进度  -->
+                <!--申请进度  -->
                 <view class='content_middle'>
-                    <block wx:for="{{List}}">
-                        <view class='content_down  flexCol  pos_1'>
-                            <view class='abs'>
-                                <image wx:if="{{item.state == 0}}" src='/images/logo.png' class='pic_2'></image>
-                                <image wx:if="{{item.state == 1}}" src='/images/logo_4.png' class='pic_2'></image>
-                                <image wx:if="{{item.state == 2}}" src='/images/logo_5.png' class='pic_2'></image>
+                    <!--请假申请循环  -->
+                    <block wx:for="{{ oa_attendance_leave_info}}">
+                        <view class='content_down  flexCol  ApplyPos' bindtap='getIdPostUrlLeave' data-id="{{item.Id}}">
+                            <view class='PlanFrame'>
+                                <image wx:if="{{item.Status == 0}}" src='/images/logo.png' class='PlanIcon'></image>
+                                <image wx:if="{{item.Status == 1}}" src='/images/logo_4.png' class='PlanIcon'></image>
+                                <image wx:if="{{item.Status == 2}}" src='/images/logo_5.png' class='PlanIcon'></image>
                             </view>
-                            <view class='Height'>
-                                <text>{{item.time}}</text>
-                                <text>{{item.name}}</text>
-                                <text>{{item.goType}}</text>
+                            <view class='ApplyHeight'>
+                                <text>{{item.Time}}</text>
+                                <text>{{item.Name}}</text>
+                                <text>{{item.Type}}</text>
                             </view>
-                            <view class='Height'>
-                                <image wx:if="{{item.state == 0}}" src='/images/icon.png' class='pic_1'></image>
-                                <image wx:if="{{item.state == 1}}" src='/images/icon_1.png' class='pic_1'></image>
-                                <image wx:if="{{item.state == 2}}" src='/images/icon_2.png' class='pic_1'></image>
-                                <text>{{item.goName}}</text>
-                                <text wx:if="{{item.state == 0}}">申请中</text>
-                                <text wx:if="{{item.state == 1}}">已完成</text>
-                                <text wx:if="{{item.state == 2}}">未通过</text>
+                            <view class='ApplyHeight'>
+                                <!--盖章图片  -->
+                                <image wx:if="{{item.Status == 0}}" src='/images/icon.png' class='StampIcon'></image>
+                                <image wx:if="{{item.Status == 1}}" src='/images/icon_1.png' class='StampIcon'></image>
+                                <image wx:if="{{item.Status == 2}}" src='/images/icon_2.png' class='StampIcon'></image>
+                                <text>审批人：{{item.Approver}}</text>
+                                <text wx:if="{{item.Status == 0}}">申请中</text>
+                                <text wx:if="{{item.Status == 1}}">已完成</text>
+                                <text wx:if="{{item.Status == 2}}">未通过</text>
                             </view>
                         </view>
                     </block>
-                    <!-- <view class='content_down  flexCol  pos_2'>
-                        <view class='abs_2'>
-                            <image src='/images/logo_4.png' class='pic_2'></image>
+                    <!--报销申请  -->
+                    <block wx:for="{{oa_finance_expenses_info}}">
+                        <view class='content_down  flexCol  ApplyPos ' bindtap='getIdPostUrlExpense' data-id="{{item.Id}}">
+                            <view class='PlanFrame'>
+                                <image wx:if="{{item.Status == 0}}" src='/images/logo.png' class='PlanIcon'></image>
+                                <image wx:if="{{item.Status == 1}}" src='/images/logo_4.png' class='PlanIcon'></image>
+                                <image wx:if="{{item.Status == 2}}" src='/images/logo_5.png' class='PlanIcon'></image>
+                            </view>
+                            <view class='ApplyHeight'>
+                                <text>{{item.Time}}</text>
+                                <text>{{item.Name}}</text>
+                                <text>报销申请</text>
+                            </view>
+                            <view class='ApplyHeight ApplyDownHeight'>
+                                <!--盖章图片  -->
+                                <image wx:if="{{item.Status == 0}}" src='/images/icon.png' class='StampIcon'></image>
+                                <image wx:if="{{item.Status == 1}}" src='/images/icon_1.png' class='StampIcon'></image>
+                                <image wx:if="{{item.Status == 2}}" src='/images/icon_2.png' class='StampIcon'></image>
+                                <text>审批人：{{item.Approver}}</text>
+                                <text wx:if="{{item.Status == 0}}">申请中</text>
+                                <text wx:if="{{item.Status == 1}}">已完成</text>
+                                <text wx:if="{{item.Status == 2}}">未通过</text>
+                            </view>
                         </view>
-                        <view class='Height'>
-                            <text>2018-01-18</text>
-                            <text>高诗敏</text>
-                            <text>请假申请</text>
-                        </view>
-                        <view class='Height'>
-                            <image src='/images/icon_1.png' class='pic_1'></image>
-                            <text>张宇(女)</text>
-                            <text>审批中</text>
-                        </view>
-                    </view>
-                    <view class='content_down  flexCol  pos_3'>
-                        <view class='abs_3'>
-                            <image src='/images/logo_5.png' class='pic_2'></image>
-                        </view>
-                        <view class='Height'>
-                            <text>2018-01-18</text>
-                            <text>高诗敏</text>
-                            <text>请假申请</text>
-                        </view>
-                        <view class='Height'>
-                            <image src='/images/icon_2.png' class='pic_1'></image>
-                            <text>张宇(女)</text>
-                            <text>审批中</text>
-                        </view>
-                    </view> -->
+                    </block>
                 </view>
             </view>
         </view>

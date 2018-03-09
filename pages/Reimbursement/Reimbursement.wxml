@@ -1,6 +1,5 @@
 <view class="container">
-    <!--顶部背景  -->
-    <view class="container_Bg_1"></view>
+    <view class="container_Bg"></view>
     <view class='page_one'>
         <!--我的报销  -->
         <view class='page_up'>
@@ -44,12 +43,8 @@
                         <text>产品日期</text>
                     </view>
                     <view class='flexRow Date'>
-                        <picker mode="date" value="{{date_start}}" bindchange="bindDateStart">
-                            <text>{{date_start}}</text>
-                        </picker>
-                        <text>至</text>
-                        <picker mode="date" value="{{date_end}}" bindchange="bindDateEnd">
-                            <text>{{date_end}}</text>
+                        <picker mode="date" value="{{date}}" bindchange="bindDate">
+                            <text>{{date}}</text>
                         </picker>
                     </view>
                 </view>
@@ -59,19 +54,19 @@
                         <text>金额（元）</text>
                     </view>
                     <view class=' Amount flexRow'>
-                        <input maxlength="10" placeholder="输入金额" type='number' bindinput='bindMoney' />
+                        <input maxlength="10" placeholder="输入金额" type='number' bindinput="bindMoney" />
                         <text>元</text>
                     </view>
                 </view>
                 <!--备注  -->
                 <view class='flexRow RemarkHeight'>
                     <view class='Title_leftCon'>
-                        <image src='/images/pic_3.png' class='remark' ></image>
+                        <image src='/images/pic_3.png' class='remark'></image>
                         <text>备注</text>
                     </view>
                 </view>
                 <view class='RemarkDetailed'>
-                    <textarea placeholder="请输入明细的列表详情备注 （限300字）" bindinput='bindRemark'></textarea>
+                    <textarea placeholder="请输入明细的列表详情备注 （限300字）" bindinput="bindRemMark"></textarea>
                 </view>
                 <!--图片  -->
                 <view class='flexRow  RemarkHeight'>
@@ -80,26 +75,23 @@
                         <text>图片</text>
                     </view>
                 </view>
-                <!--上传图片按钮  -->
-                <view class='Pictures'>
-                    <image wx:if="{{tempFilePaths}}" src="{{tempFilePaths}}" mode="aspecFill" class="tempImg"/>
-                    <image src='/images/pic_7.png' class='AddPic' bindtap='chooseimage'></image>
-                    <image src='/images/pic_8.png' class='AddPic' bindtap='clearimage'></image>
+                <!-- 上传图片 -->
+                <view class='Pictures flexCol'>
+                    <view class='UploadPic'>
+                        <image wx:if="{{tempFilePaths.length > 0}}" wx:for='{{tempFilePaths}}' src="{{item}}" mode="aspecFill" class="tempImg" />
+                    </view>
+                    <view class='Pic_add'>
+                        <image src='/images/pic_7.png' class='AddPic' bindtap="chooseimage"></image>
+                        <image src='/images/pic_8.png' class='AddPic' bindtap="clearimage"></image>
+                    </view>
                 </view>
             </view>
         </view>
         <!--按钮  -->
         <view class='page_down'>
-            <view>
-                <button type="default" class='SaveAndLay_button' bindtap="Save">
-                    保存草稿
-                </button>
-            </view>
-            <view>
-                <button type="default" class='SaveAndLay_button' bindtap="Lay">
-                    立即提交
-                </button>
-            </view>
+            <button type="default" class='SaveAndLay_button' bindtap="Lay">
+                立即提交
+            </button>
         </view>
     </view>
 </view>

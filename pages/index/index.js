@@ -2,71 +2,108 @@ Page({
     data: {
         imgSrc: '',
         nickName: '',
-        TODO_COUNT: null
+        // 申请进度数量
+        applyNum: '',
+        // 待办事项数量
+        backlogNum: ''
     },
-
+    // 页面加载前（钩子函数）
     onLoad: function (options) {
-        let that = this;
-        // 获取缓存中用户头像、名称、id
-        let userInfo = wx.getStorageSync('userInfo');
-        let Uid = wx.getStorageSync('user');
+        // 获取用户信息
+        var userInfo = wx.getStorageSync('userInfo')
         this.setData({
-            imgSrc: userInfo.avatarUrl
+            imgSrc: userInfo.avatarUrl,
+            nickName: userInfo.nickName
         })
-        // 获取待办事项及申请进度数量
+    },
+    // 页面显示时（钩子函数）
+    onShow: function () {
+        var that = this;
+        // 获取申请进度
         wx.request({
-            url: 'https://oa.jltengfang.com/small/index/Todo',
+            url: 'https://oa.jltengfang.com/small/index/ApplicationProgress',
             data: {
-                Uid: Uid
+                Uid: wx.getStorageSync('user')
             },
             header: {
                 'content-type': 'application/json',
-                'Cookie': 'PHPSESSID=' + this.data.session_id,
+                'Cookie': 'PHPSESSID=' + wx.getStorageSync('session_id'),
                 'Flag': 'MiniApp'
             },
             method: 'POST',
             dataType: 'json',
             success: function (res) {
-                // 获取姓名, 两个数量
+                // 拼接申请进度数量，放置data中
+                let applyNum = res.data.oa_attendance_leave_info.length + res.data.oa_finance_expenses_info.length;
                 that.setData({
-                    nickName: res.data.Name,
-                    TODO_COUNT: res.data.TODO_COUNT
+                    applyNum: applyNum
                 })
             },
-            fail: function (err) { }
-        })
+            fail: function (err) {
+                wx.showToast({
+                    title: '网络异常',
+                    mask: true,
+                    icon: 'loading'
+                })
+            }
+        });
+        // 待办事项数量获取
+        wx.request({
+            url: 'https://oa.jltengfang.com/small/index/TodoList',
+            data: {
+                Uid: wx.getStorageSync('user')
+            },
+            header: {
+                'content-type': 'application/json',
+                'Cookie': 'PHPSESSID=' + wx.getStorageSync('session_id'),
+                'Flag': 'MiniApp'
+            },
+            method: 'POST',
+            dataType: 'json',
+            success: function (res) {
+                // 拼接待办事项数量，放置data中
+                let backlogNum =
+                    res.data.oa_attendance_leave_info.length + res.data.oa_finance_expenses_info.length;
+                that.setData({
+                    backlogNum: backlogNum
+                })
+            }
+        });
     },
-
-    //申请进度
+    // 申请进度
     Application: function () {
         wx.navigateTo({
             url: '/pages/Application/Application'
         })
     },
-
-    //请假申请
+    // 待办事项
+    GoTodoList: function () {
+        wx.navigateTo({
+            url: '/pages/TodoList/TodoList'
+        })
+    },
+    // 请假申请
     Leave: function () {
         wx.navigateTo({
-            url: '/pages/Leave_page/Leave_page'
+            url: '/pages/LeavePage/LeavePage'
         })
     },
-
-    //外勤申请
+    // 外勤申请
     Field: function () {
         wx.navigateTo({
-            url: '/pages/Sign_in/Sign_in'
+            url: '/pages/SignIn/SignIn'
         })
     },
-
-    //报销申请
+    // 报销申请
     Rei: function () {
         wx.navigateTo({
             url: '/pages/Reimbursement/Reimbursement'
         })
     },
+    // 草稿箱
     Draft: function () {
         wx.navigateTo({
-            url: '/pages/My_Draft/My_Draft'
+            url: '/pages/MyDraft/MyDraft'
         })
     },
 })

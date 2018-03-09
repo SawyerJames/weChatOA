@@ -1,0 +1,66 @@
+<view class="container">
+    <view class="container_Bg">
+        <!--顶部背景  -->
+
+    </view>
+    <!--我的外勤  -->
+    <view class='container_Backlog '>
+        <view class='title'>
+            <text>我的外勤</text>
+        </view>
+        <view class='flexRow'>
+            <view class='Photo'>
+                <image src='{{imgSrc}}' class='PersonalHead'></image>
+            </view>
+            <view class='ContentRight'>
+                <view class='NickName'>
+                    <text class='Name'>{{nickName}}</text>
+                </view> 
+                  <view class=''> 
+                    <text class='Date'>{{date}}</text>
+                </view>
+                <view>
+                    <text class='company'>吉林省腾放有限公司</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!--签到  -->
+    <view class='container_Map '>
+           <map 
+           id="map" 
+           class='Map' 
+           longitude="{{longitude}}" 
+           latitude="{{latitude}}" 
+           scale="15" 
+           show-location
+           style="width: 92%; height: 92%;">
+        </map>
+    </view>
+    <view class='Sign flexRow'>
+        <text class='SignCon' bindtap='Sign_Come'>签到</text>
+        <text class='SignCon' bindtap='Sign_back'>签退</text>
+    </view>
+    <!--外勤签单 -->
+    <view class='container_Field  flexCol'>
+        <view class='fieldwork'>
+            <image src='/images/pic_13.png' class='FieldworkPic'></image>
+            <text>外勤签单</text>
+        </view>
+        <view class='fieldwork_Sign flexCol'>
+            <text class=' Sign_text'>我在{{Address}}
+                <text wx:if="{{Sign==1}}">签到</text>
+            <text wx:if="{{Sign==0}}">签退</text>
+            </text>
+            <view class='ValidateTip flexRow' wx:if="{{Validate}}">
+                <icon type="warn" size="16"/>
+                <text class='Validate'>{{Validate}}</text>
+            </view>
+        </view>
+    </view>
+    <view class='page_down'>
+        <button type="default" class='Submit_button' bindtap='Submit_button'>
+            立即提交
+        </button>
+    </view>
+</view>

@@ -1,32 +1,23 @@
-page {
-    background-color: #f0f4f5;
-}
-
 /*主页面  */
 
 .page_one {
     position: absolute;
     top: 50rpx;
     left: 0;
-    font-size: 28rpx;
     display: flex;
+    font-size: 28rpx;
     flex-direction: column;
 }
 
-/*内容页  */
-
 .page_up {
     width: 710rpx;
-    background-color: #fff;
-    box-shadow: 5rpx 5rpx 5rpx #dfe3e6;
+    background-color: #fafafa;
+    box-shadow: 4rpx 4rpx 10rpx 4rpx #dfe3e6;
     border-radius: 10rpx;
     margin: 0 0 0 20rpx;
 }
 
-/*标题我的报销  */
-
 .title {
-    background: #e8f2ed;
     height: 80rpx;
     line-height: 80rpx;
     text-align: center;
@@ -34,205 +25,72 @@ page {
     border-radius: 10rpx 10rpx 0 0;
 }
 
-/*报销编号角标  */
-
-.Rei_Pic {
-    width: 20rpx;
-    height: 20rpx;
-}
-
-/*报销明细角标  */
-
-/* .Detail_pic {
-    width: 24rpx;
-    height: 24rpx;
-} */
-
-/*备注类LOGO */
-
-.remark {
-    width: 34rpx;
-    height: 34rpx;
-    vertical-align: middle;
-}
-
-/*产品日期选择  */
-
-.Date {
-    width: 200rpx;
-    margin-left: 360rpx;
-}
-
 /*所有高度相同的view  */
 
 .AllSameHeight {
-    background-color: #fff;
-    border-bottom: 1px solid #eeeded;
-    height: 90rpx;
-    line-height: 90rpx;
-}
-
-.RemarkHeight {
     height: 60rpx;
     line-height: 60rpx;
-    background-color: #eeeded;
-}
-
-/*上传的图片  */
-
-.tempImg {
-    width: 300rpx;
-    height: 300rpx;
-}
-
-.Pictures .UploadPic {
-    min-height: 100rpx;
-    min-width: 500rpx;
-    margin-bottom: 100rpx;
-
-}
-
-.Pictures .Pic_add {
-    position: absolute;
-    bottom: 10rpx;
-    padding-left: 500rpx;
-}
-
-/*已经上传的图片样式  */
-
-.Pictures {
-    position: relative;
-    min-height: 140rpx;
-    /* margin: 30rpx 0 0 450rpx; */
-}
-
-/*上传的图片  */
-
-.tempImg {
-    margin-left: 35rpx;
-}
-
-.Pictures .UploadPic {
-    min-height: 100rpx;
-    min-width: 700rpx;
-    margin-bottom: 100rpx;
-}
-
-.Pictures .Pic_add {
-    position: absolute;
-    bottom: 10rpx;
-    padding-left: 500rpx;
-}
-
-/*备注输入  */
-
-.RemarkDetailed {
-    min-height: 150rpx;
-}
-
-.RemarkDetailed textarea {
-    letter-spacing: 4rpx;
-    margin: 10rpx auto;
-}
-
-.AddPic {
-    width: 60rpx;
-    height: 60rpx;
-    margin: 10px;
-}
-
-/*报销编号绿色字  */
-
-.GreenFont {
-    color: #30a072;
+    border-radius: 10rpx;
 }
 
 /*左边竖排字对其  */
 
-.Title_left {
-    width: 180rpx;
-    margin-left: 20rpx;
-}
-
 .Title_left text {
-    padding-left: 10px;
+    padding-top: 20rpx;
+    padding-left: 20px;
+    color: #30a072;
 }
 
-.Title_leftCon {
-    width: 180rpx;
-    margin-left: 40rpx;
+.pic_2 {
+    width: 70rpx;
+    height: 70rpx;
 }
 
-.Title_leftCon text {
-    padding-left: 10px;
-    vertical-align: middle;
-}
+/*进度  */
 
-/*右边竖排字对其  */
-
-.Title_right {
-    width: 470rpx;
-    margin-left: 20rpx;
-    text-align: right;
-}
-
-/*金额  */
-
-.Amount {
-    width: 300rpx;
-    margin-left: 200rpx;
-}
-
-.Amount input {
-    height: 90rpx;
-    line-height: 90rpx;
-    text-align: right;
-}
-
-/* 
-.RemarkHeight .Title_rightCon text {
-    padding: 20rpx;
-} */
-
-.RemarkDetailed input {
-    text-align: center;
-    padding-top: 40rpx;
-}
-
-/*按钮  */
-
-.button_Lay {
-    margin: 0 auto;
-}
-
-.page_down {
-    display: flex;
+.content_List {
     width: 710rpx;
-    height: 140rpx;
-    margin: 12rpx 0 24rpx 20rpx;
-}
-
-.page_down view {
-    width: 50%;
-}
-
-.page_down .SaveAndLay_button {
-    width: 200rpx;
-    height: 60rpx;
-    line-height: 60rpx;
-    background-color: #3edd9b;
-    color: #fff;
-    font-size: 28rpx;
-    margin-top: 50rpx;
-}
-
-.page_down .SaveAndLay_button::after {
-    border: none;
-}
-
-.UploadPic .tempImg {
+    min-height: 500rpx;
     margin-top: 20rpx;
-   
+}
+
+.content_down {
+    width: 640rpx;
+    min-height: 140rpx;
+    margin-left: 36rpx;
+    display: flex;
+    background-color: #fff;
+    box-shadow: 5rpx 5rpx 5rpx #dfe3e6;
+    margin-bottom: 30rpx;
+    border-radius: 10rpx;
+}
+
+.FrameHeight {
+    width: 640rpx;
+    min-height: 50rpx;
+    margin-top: 14rpx;
+}
+
+.FrameHeight text {
+    height: 50rpx;
+    line-height: 50rpx;
+    vertical-align: middle;
+    margin-left: 40rpx;
+    font-weight: 400;
+}
+
+/*角标定位  */
+
+.List_frame {
+    position: relative;
+}
+
+/*关闭按钮  */
+
+.close {
+    position: absolute;
+    top: 10rpx;
+    right: 10rpx;
 }
 
 /*背景圖片  */

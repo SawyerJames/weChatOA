@@ -1,6 +1,7 @@
 Page({
     // 数据
     data: {
+        // 传一个电话号码
         cardNumber: '',
         session_id: ''
     },
@@ -12,13 +13,12 @@ Page({
         //userInfo用户信息
         var userInfo = wx.getStorageSync('userInfo') || {};
         // 微信授权登录
-        this.login();  
+        this.login();
     },
-
     // 手机号获取input值
     cardNumberInput: function (e) {
         this.setData({
-            // e代表输入框.里面详细的值
+            //e代表输入框.里面详细的值
             cardNumber: e.detail.value
         })
     },
@@ -34,7 +34,7 @@ Page({
             })
         }
         else {
-            // 点击调取后台注册工具
+            // this代表着goIndex 代表着全局
             wx.request({
                 url: 'https://oa.jltengfang.com/small/index/binding',
                 data: {
@@ -56,12 +56,7 @@ Page({
                             icon: 'success',
                             mask: true,
                             success: function () {
-                                // 注册成功1.5s后跳转首页
-                                setTimeout(function () {
-                                    wx.redirectTo({
-                                        url: '/pages/index/index'
-                                    })
-                                }, 1500)
+                                that.login();
                             }
                         })
                     }
@@ -74,27 +69,36 @@ Page({
                         })
                     }
                 },
-                fail: function (err) {}
+                fail: function (err) {
+                    wx.showToast({
+                        title: '网络异常',
+                        mask: true,
+                        icon: 'loading'
+                    })
+                }
             })
         }
     },
 
     // 微信登录方法
     login: function () {
-        var that = this;
         wx.showLoading({
             title: '正在验证信息...',
             mask: true,
         })
+        var that = this;
         wx.login({
             success: function (res) {
                 // 如果请求的状态码不为空，则获取用户登录态成功
                 if (res.code) {
+                    // 获取用户信息
                     wx.getUserInfo({
                         success: function (data) {
                             // 定义空对象，用来存储用户基本信息
                             var userInfo = {};
+                            //用户的头像
                             userInfo.avatarUrl = data.userInfo.avatarUrl;
+                            // 用户的姓名
                             userInfo.nickName = data.userInfo.nickName;
                             //存储userInfo
                             wx.setStorageSync('userInfo', userInfo);
@@ -123,14 +127,31 @@ Page({
                                         })
                                     }
                                     // 获取到Uid,添加至缓存中
-                                    if (ssdata.data.userId){
+                                    if (ssdata.data.userId) {
                                         wx.setStorageSync('user', ssdata.data.userId.MemberInfo.Id);
                                     }
                                     // 判断授权状态，如果不存在，说明已经注册，则跳转首页
                                     if (ssdata.data.regist_status != 0) {
-                                        wx.redirectTo({
-                                            url: '/pages/index/index'
-                                        })
+                                        wx.request({
+                                            url: 'https://oa.jltengfang.com/small/index/GetUserInfo',
+                                            data: {
+                                                avatarUrl:data.userInfo.avatarUrl,
+                                                nickName:data.userInfo.nickName,
+                                                Uid: ssdata.data.userId.MemberInfo.Id
+                                            },
+                                            header: {
+                                                'content-type': 'application/json',
+                                                'Flag': 'MiniApp',
+                                                'session_id': ssdata.data.session_id
+                                            },
+                                            method: 'POST',
+                                            dataType: 'json',
+                                            success: function(res) {
+                                                wx.redirectTo({
+                                                    url: '/pages/index/index'
+                                                })
+                                            }
+                                        }) 
                                     }
                                     else {
                                         // 关闭loading
